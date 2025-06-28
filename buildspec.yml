@@ -2,8 +2,12 @@ version: 0.2
  
 phases:
   install:
+    runtime-versions:
+      nodejs: 18
     commands:
       - npm install -g artillery@latest
   build:
+    runtime-versions:
+      nodejs: 18
     commands:
-      - artillery run index.ts
+      - artillery run index.ts --key a9_uso82ajboqvdsm920k5eh0t3i4r99id8
