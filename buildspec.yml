@@ -6,4 +6,4 @@ phases:
       - npm install -g artillery@latest
   build:
     commands:
-      - artillery run tests/performance/socket-io.yml
+      - artillery run index.ts
