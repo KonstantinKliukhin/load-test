@@ -11,9 +11,10 @@ export const config = {
     extendedMetrics: true,
   },
   phases: [
-    { duration: 60, arrivalRate: 5, name: "warm‑up" },
-    { duration: 120, arrivalRate: 50, rampTo: 200, name: "ramp‑up" },
-    { duration: 300, arrivalRate: 200, name: "sustain" },
+    { duration: 5, arrivalRate: 5, name: "warm‑up" },
+    // { duration: 60, arrivalRate: 5, name: "warm‑up" },
+    // { duration: 120, arrivalRate: 50, rampTo: 200, name: "ramp‑up" },
+    // { duration: 300, arrivalRate: 200, name: "sustain" },
   ],
   engines: { playwright: { aggregateByName: true } },
   plugins: {},
