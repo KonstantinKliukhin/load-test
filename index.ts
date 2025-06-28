@@ -1,7 +1,10 @@
 import { Page } from "@playwright/test";
 
+const baseUrl =
+  "https://rendering-patterns-8mwgp9v2c-konstantinkliukhins-projects.vercel.app";
+
 export const config = {
-  target: "http://localhost:3000",
+  target: baseUrl,
   showAllPageMetrics: true,
   testIdAttribute: "product-list",
   http: {
@@ -30,23 +33,24 @@ export const scenarios = [
 ];
 
 async function ssrFlow(page, vuContext, events, test) {
-  await exercise(page, "http://localhost:3000/ssr", vuContext, events, test);
+  await exercise(page, `${baseUrl}/ssr`, vuContext, events, test);
 }
 async function csrFlow(page, vuContext, events, test) {
-  await exercise(page, "http://localhost:4173/", vuContext, events, test);
+  await exercise(page, `${baseUrl}/`, vuContext, events, test);
 }
 
 async function ssgFlow(page, vuContext, events, test) {
-  await exercise(page, "http://localhost:3000/ssg", vuContext, events, test);
+  await exercise(page, `${baseUrl}/ssg`, vuContext, events, test);
 }
 
 async function isrFlow(page, vuContext, events, test) {
-  await exercise(page, "http://localhost:3000/isr", vuContext, events, test);
+  await exercise(page, `${baseUrl}/isr`, vuContext, events, test);
 }
 
 async function exercise(page: Page, path: string, vuContext, events, test) {
   const { step } = test;
   const timings = {};
+  console.log("path", path);
   await page.goto(path, { waitUntil: "load" });
 
   await step("collect-perf-metrics", async () => {
