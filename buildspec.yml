@@ -7,7 +7,5 @@ phases:
     commands:
       - npm install -g artillery@latest
   build:
-    runtime-versions:
-      nodejs: 22
     commands:
       - artillery run index.ts
