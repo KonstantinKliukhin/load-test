@@ -10,4 +10,4 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - artillery run index.ts --key a9_uso82ajboqvdsm920k5eh0t3i4r99id8
+      - artillery run index.ts
