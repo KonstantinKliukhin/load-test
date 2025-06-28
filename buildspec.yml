@@ -8,4 +8,7 @@ phases:
       - npm install -g artillery@latest
   build:
     commands:
+      - echo "Node version:" && node -v
+      - echo "CPU Info:" && lscpu
+      - echo "Free memory:" && free -h
       - artillery run index.ts

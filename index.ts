@@ -11,15 +11,10 @@ export const config = {
     extendedMetrics: true,
   },
   phases: [
-    { duration: 10, arrivalRate: 1, name: "warm-up" },
-    // warm‑up
-    // { duration: 60, arrivalRate: 10, name: "warm‑up" },
-    // // ramp to peak
-    // { duration: 120, arrivalRate: 100, rampTo: 500, name: "ramp‑up" },
-    // // steady state (this is where you collect the charts you’ll show)
-    // { duration: 300, arrivalRate: 500, name: "sustain" },
-    // // optional cool‑down pause
-    // { pause: 30 },
+    { duration: 60, arrivalRate: 10, name: "warm‑up" },
+    { duration: 120, arrivalRate: 100, rampTo: 500, name: "ramp‑up" },
+    { duration: 300, arrivalRate: 500, name: "sustain" },
+    { pause: 30 },
   ],
   engines: { playwright: { aggregateByName: true } },
   plugins: {},
