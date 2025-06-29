@@ -1,7 +1,6 @@
 import { Page } from "@playwright/test";
 
-const baseUrl =
-  "https://rendering-patterns-8mwgp9v2c-konstantinkliukhins-projects.vercel.app";
+const baseUrl = "https://356f1925a22302.lhr.life";
 
 export const config = {
   target: baseUrl,
@@ -11,6 +10,7 @@ export const config = {
     extendedMetrics: true,
   },
   phases: [
+    // { duration: 10, arrivalRate: 1, name: "warm‑up" },
     { duration: 60, arrivalRate: 10, name: "warm‑up" },
     { duration: 120, arrivalRate: 100, rampTo: 500, name: "ramp‑up" },
     { duration: 300, arrivalRate: 500, name: "sustain" },
