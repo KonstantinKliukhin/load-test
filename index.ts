@@ -20,7 +20,7 @@ export const config = {
   engines: {
     playwright: {
       aggregateByName: true,
-      maxConcurrentContexts: 5,
+      maxConcurrentContexts: 2,
       launchOptions: {
         args: ["--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage"],
       },
