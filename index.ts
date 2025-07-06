@@ -71,4 +71,12 @@ async function exercise(page: Page, path: string, vuContext, events, test) {
   await step("list-visible", async () => {
     await page.waitForSelector('[data-testid="products-list"]', { state: "visible" });
   });
+
+  await step("close-browser", async () => {
+    try {
+      await page?.close?.();
+    } catch (error) {
+      console.error("Error closing browser", error);
+    }
+  });
 }
