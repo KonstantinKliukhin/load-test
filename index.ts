@@ -15,7 +15,15 @@ export const config = {
     { duration: 120, arrivalRate: 100, rampTo: 500, name: "ramp‑up" },
     { duration: 300, arrivalRate: 500, name: "sustain" },
   ],
-  engines: { playwright: { aggregateByName: true } },
+  engines: {
+    playwright: {
+      aggregateByName: true,
+      maxConcurrentContexts: 10,
+      launchOptions: {
+        args: ["--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage"],
+      },
+    },
+  },
   plugins: {},
 }; // :contentReference[oaicite:0]{index=0}
 
@@ -74,7 +82,12 @@ async function exercise(page: Page, path: string, vuContext, events, test) {
 
   await step("close-browser", async () => {
     try {
-      await page?.close?.();
+      if (page && page.context()) {
+        const browser = page.context().browser();
+        await page.close();
+        await page.context().close();
+        await browser?.close?.();
+      }
     } catch (error) {
       console.error("Error closing browser", error);
     }
