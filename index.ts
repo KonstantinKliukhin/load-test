@@ -1,5 +1,7 @@
 import { Page } from "@playwright/test";
+import * as http from "http";
 
+http.globalAgent.maxSockets = Infinity;
 const baseUrl = "http://localhost:9000";
 
 export const config = {
@@ -18,7 +20,7 @@ export const config = {
   engines: {
     playwright: {
       aggregateByName: true,
-      maxConcurrentContexts: 10,
+      maxConcurrentContexts: 5,
       launchOptions: {
         args: ["--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage"],
       },
