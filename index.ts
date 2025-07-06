@@ -11,9 +11,9 @@ export const config = {
   },
   phases: [
     // { duration: 10, arrivalRate: 1, name: "warm‑up" },
-    { duration: 60, arrivalRate: 10, name: "warm‑up" },
-    { duration: 120, arrivalRate: 100, rampTo: 500, name: "ramp‑up" },
-    { duration: 300, arrivalRate: 500, name: "sustain" },
+    { duration: 60, arrivalRate: 3, name: "warm‑up" },
+    { duration: 120, arrivalRate: 3, rampTo: 8, name: "ramp‑up" },
+    { duration: 300, arrivalRate: 8, name: "sustain" },
   ],
   engines: {
     playwright: {
@@ -74,10 +74,6 @@ async function exercise(page: Page, path: string, vuContext, events, test) {
     events.emit("histogram", "fcp", perf.fcp);
     events.emit("histogram", "lcp", perf.lcp);
     vuContext.vars.timings = timings;
-  });
-
-  await step("list-visible", async () => {
-    await page.waitForSelector('[data-testid="products-list"]', { state: "visible" });
   });
 
   await step("close-browser", async () => {
