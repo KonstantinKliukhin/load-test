@@ -75,17 +75,4 @@ async function exercise(page: Page, path: string, vuContext, events, test) {
     events.emit("histogram", "lcp", perf.lcp);
     vuContext.vars.timings = timings;
   });
-
-  await step("close-browser", async () => {
-    try {
-      if (page && page.context()) {
-        const browser = page.context().browser();
-        await page.close();
-        await page.context().close();
-        await browser?.close?.();
-      }
-    } catch (error) {
-      console.error("Error closing browser", error);
-    }
-  });
 }
