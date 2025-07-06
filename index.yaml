@@ -13,8 +13,7 @@ config:
       arrivalRate: 200
       rampTo: 400
       name: Spike phase
-  scenarios:
-  - name: SSR
-    flow:
-      - get:
-          url: '/ssr'
+scenarios:
+  - flow:
+    - get:
+        url: '/ssr'
