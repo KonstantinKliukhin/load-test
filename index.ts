@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 
-const baseUrl = "https://356f1925a22302.lhr.life";
+const baseUrl = "http://ec2-18-205-160-71.compute-1.amazonaws.com:3000";
 
 export const config = {
   target: baseUrl,
